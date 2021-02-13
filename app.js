@@ -1,4 +1,4 @@
-
+const path = require("path");
 const bodyParser = require("body-parser");
 const express = require('express');
 
@@ -15,6 +15,9 @@ app.set("view engine" ,"ejs");
 //*Routes
 app.use("/admin" , require("./routes/adminRoutes"));
 app.use("/" , require("./routes/homeRouters"));
+
+//* Statics
+app.use(express.static(path.join(__dirname, "public")));
 
 
 

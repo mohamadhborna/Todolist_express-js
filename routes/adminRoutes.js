@@ -9,10 +9,10 @@ router.post("/add-todo" , adminControllers.addTodo);
 
 // @desc change uncompleted todo state to completed todo
 // @route Get /admin/completed-todo
-router.get("/completed-todo" , adminControllers.completeTodo);
+router.get("/completed-todo/:id" , adminControllers.completeTodo);
 
 // @desc Delete selected todo
 // @route Get /admin/delete-todo
-router.get("/delete-todo" , adminControllers.deleteTodo);
+router.get("/delete-todo/:id" , adminControllers.deleteTodo);
 
 module.exports = router

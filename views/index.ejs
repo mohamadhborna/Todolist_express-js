@@ -1,0 +1,81 @@
+<%- include('includes/header.ejs') %>
+<div class="form-group">
+    <h1>کارهای <small>روزمره</small></h1>
+    <form
+        role="form"
+        class="row w-50 justify-content-center mx-auto"
+        action="/admin/add-todo"
+        method="POST"
+    >
+        <input
+            type="text"
+            class="form-control w-50"
+            placeholder="کار امروز"
+            name="todo"
+        />
+        <button
+            type="submit"
+            class="btn btn-primary fa fa-plus align-self-center ml-1"
+        ></button>
+    </form>
+</div>
+<div class="mx-auto w-50 mb-3 alert alert-primary">
+    <p class="d-inline">
+        کارهای انجام شده :
+        <span class="badge badge-success badge-pill">
+            <%= completedTodos %>
+        </span>
+    </p>
+    <p class="d-inline float-left">
+        کارهای باقی مانده :
+        <span class="badge badge-warning badge-pill">
+            <%= remainingTodos %>
+        </span>
+    </p>
+</div>
+
+<%if(todos.length > 0) { %>
+<ul class="list-unstyled" id="todo">
+    <% for(let todo of todos) {%>
+    <li>
+        <div
+            class="alert <%if (todo.completed) {%> alert-success <% } else {%> alert-secondary <%}%>"
+            role="alert"
+        >
+            <%if(todo.completed){ %>
+            <del><%= todo.text %></del>
+            <a
+                href="/admin/delete-todo/<%= todo.id%>"
+                class="close fa fa-trash"
+                style="color: red"
+            ></a>
+            <% } else {%> <%= todo.text %>
+            <a
+                href="/admin/delete-todo/<%= todo.id%>"
+                class="close fa fa-trash"
+                style="color: red"
+            ></a>
+            <a
+                href="/admin/completed-todo/<%= todo.id%>"
+                class="close fa fa-check-square mr-2"
+                style="color: green"
+            ></a>
+            <%} %>
+        </div>
+    </li>
+    <% } %>
+</ul>
+<% } else {%>
+<div class="alert alert-warning w-50 mx-auto" role="alert">
+    <h4 class="alert-heading">هیچ کاری برای امروز نیست</h4>
+    <p>
+        می تونی کارهای امروزت رو بالا بنویسی و دکمه اینتر رو بزنی تا برات ثبتش
+        کنم
+    </p>
+    <hr />
+    <p class="mb-0">
+        اگر کم و کاستی داشت به دل نگیر
+        <span class="fa fa-heart" style="color: red"></span>
+    </p>
+</div>
+<%} %> <%- include('includes/footer.ejs') %>

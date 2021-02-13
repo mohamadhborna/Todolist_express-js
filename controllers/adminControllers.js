@@ -15,7 +15,7 @@ exports.addTodo = async(req , res) =>{
 exports.completeTodo = async(req , res) =>{
     try{
         const todo = await Todo.findById(req.params.id);
-        todo.completed = true
+        todo.isCompleted = true
         await todo.save();
         res.redirect("/");
     }
