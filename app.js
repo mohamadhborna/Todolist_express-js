@@ -9,6 +9,9 @@ require("./utils/db");
 //* Body Parser
 app.use(bodyParser.urlencoded({extended:false}));
 
+//*Template engine
+app.set("view engine" ,"ejs");
+
 //*Routes
 app.use("/admin" , require("./routes/adminRoutes"));
 app.use("/" , require("./routes/homeRouters"));
