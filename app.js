@@ -10,6 +10,7 @@ require("./utils/db");
 app.use(bodyParser.urlencoded({extended:false}));
 
 //*Routes
+app.use("/admin" , require("./routes/adminRoutes"));
 app.use("/" , require("./routes/homeRouters"));
 
 
