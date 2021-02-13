@@ -1,0 +1,21 @@
+{
+  "name": "Todolist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1" , 
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohamadhborna/Todolist.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mohamadhborna/Todolist/issues"
+  },
+  "homepage": "https://github.com/mohamadhborna/Todolist#readme"
+}
